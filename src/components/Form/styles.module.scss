@@ -1,9 +1,8 @@
 
-input {
+input, 
+button {
     background-color: rgb(80,50,50);
+    text-align: center;
+    font-size: 14px;
 }
 
-label {
-    display: flex;
-    justify-content: space-evenly;
-}

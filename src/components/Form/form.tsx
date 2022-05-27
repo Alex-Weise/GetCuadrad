@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 function GetForm () {
     const [valueA, setValueA] = useState(1);
@@ -12,35 +12,36 @@ function GetForm () {
       }
       let discrim = Math.pow(valueB, 2) - 4 * valueA * valueC;
       if (discrim < 0) {
-          return (<p>Корней нет!</p>)
+          return (<p>Дискриминант = {discrim}. Корней нет!</p>)
       }
       else if (discrim === 0) {
-          return <p>Один корень: {(-valueB + Math.sqrt(discrim)) / 2 * valueA}</p>
+          return <p>Дискриминант = {discrim}. Один корень: {(-valueB + Math.sqrt(discrim)) / 2 * valueA}</p>
       } else {
       let x1 = (-valueB + Math.sqrt(discrim)) / 2 * valueA;
       let x2 = (-valueB - Math.sqrt(discrim)) / 2 * valueA;
-       return <p>Корень x1 = {x1}; корень x2 = {x2}</p>
+       return <p>Дискриминант = {discrim}. Корень x1 = {x1}; корень x2 = {x2}</p>
       }
     }
     return (
-        <div className="someform">
+        <div className={styles.container}>
           <h2>Итак, приступим к расчетам!</h2>
-          <form onSubmit={(e) => { GetCuadrad()}}>
+          <div>
               <p>Введите коэфициенты уравнения a, b и c:</p>
-              <label>
                  <p>1-Коэфициент a - <input 
                     type={"number"} size={10} placeholder={"не равный 0"}
                     onChange={(e) => setValueA(+e.target.value)}></input></p>
                  <p>2-Коэфициент b - <input 
-                    type={"namber"} size={10} placeholder={"Коэфициэнт b"}
+                    type={"number"} size={10} placeholder={"Коэфициэнт b"}
                     onChange={(e) => setValueB(+e.target.value)}></input></p>
                  <p>3-Коэфициент c - <input 
-                    type={"namber"} size={10} placeholder={"Коэфициэнт c"}
+                    type={"number"} size={10} placeholder={"Коэфициэнт c"}
                     onChange={(e) => setValueC(+e.target.value)}></input></p>
-               </label>
-          <h2>Узнать корни уравнения - <input type={'submit'} value={'Искать!'}></input></h2>
-          </form>
-          <h2>{GetCuadrad()}</h2>
+            <h2>Узнать корни уравнения - <button 
+                className={styles.container} onClick={() => GetCuadrad()}>
+                <img src="logo32.png" alt="Квадратный корень"></img>Искать!</button>
+            </h2>
+          </div>
+          <h2><GetCuadrad /></h2>
         </div>
     );
 }
