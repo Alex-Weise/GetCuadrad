@@ -1,4 +1,4 @@
-export function getCuadrad (A: any, B: any, C: any) {
+export function getCuadrad (A: number, B: number, C: number) {
    if (A <= 0 || typeof B !== 'number' || typeof C !== 'number') {
        throw new Error("Не корректные коэфициенты");
    }
@@ -15,7 +15,7 @@ export function getCuadrad (A: any, B: any, C: any) {
    let x1 = (-B + Math.sqrt(discrim)) / 2 * A;
 
    let x2 = (-B - Math.sqrt(discrim)) / 2 * A;
-   
+
     return `Дискриминант = ${discrim}. Корень x1 = ${x1}; корень x2 = ${x2}`
    }
  }
