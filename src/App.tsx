@@ -9,7 +9,13 @@ function App() {
   return (
     <main className='App'> 
       <div className='column'>
-         <Inform />
+        {/* Попробуй вместо компонентов Inform Discrim и Cuadrad сделать один 
+        универсальный компонент
+
+        У него должно быть две пропсы - тайтл и текст
+        И передавай контент отсюда
+        Контент можно хранить в объектах */}
+         <Inform /> 
          <Discrim />
       </div>
       <Cuadrad />
